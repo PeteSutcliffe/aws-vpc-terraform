@@ -11,3 +11,11 @@ resource "aws_vpc" "vpc" {
     Name = "DemoVPC"
   }
 }
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = "${aws_vpc.vpc.id}"
+
+  tags = {
+    Name  = "demo_igw"
+  }
+}
