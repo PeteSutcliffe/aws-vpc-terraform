@@ -4,6 +4,7 @@ resource "aws_instance" "server" {
   vpc_security_group_ids = ["${aws_security_group.demo_sg.id}"]
   key_name               = "pete-eu-west-1"
   subnet_id              = "${aws_subnet.public_subnet_a.id}"
+  user_data              = "${file("userdata.txt")}"
 
   tags {
     Name = "Web Server"
